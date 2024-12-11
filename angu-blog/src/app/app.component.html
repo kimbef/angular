@@ -2,17 +2,22 @@
 <nav>
   <ul>
     <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/register">Register</a></li>
-    <li><a routerLink="/dashboard">Dashboard</a></li>
-    <li><a routerLink="/create">Create Post</a></li>
+    <li><a routerLink="/login" *ngIf="!isLoggedIn">Login</a></li>
+    <li><a routerLink="/register" *ngIf="!isLoggedIn">Register</a></li>
+    <li><a routerLink="/dashboard" *ngIf="isLoggedIn">Dashboard</a></li>
+    <li><button (click)="logout()" *ngIf="isLoggedIn">Logout</button></li>
   </ul>
 </nav>
+
 
 <!-- Main Content -->
 <main>
   <router-outlet></router-outlet>
 </main>
+
+
+
+
 
 <!-- Footer -->
 <footer>
